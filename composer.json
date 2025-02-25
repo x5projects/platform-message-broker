@@ -1,0 +1,40 @@
+{
+    "name": "platform/message-broker",
+    "type": "project",
+    "description": "The notification component for the platform.",
+    "keywords": [
+        "platform",
+        "media"
+    ],
+    "require": {
+        "php": "^8.2",
+        "psr/http-message": "^1.1 || ^2.0",
+        "basis-company/nats": "^1.0",
+        "platform/core": "@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Platform\\Components\\MessageBroker\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Platform\\Components\\MessageBrokerTests\\": "tests/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=message-broker-config"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
