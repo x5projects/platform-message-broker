@@ -9,6 +9,13 @@ use ArrayObject;
 /**
  * MessageBrokerConfig class
  *
+ * This class handles configuration for connection to a message broker service (NATS,...).
+ * It extends ArrayObject to allow accessing configuration values as object properties.
+ *
+ * @property string $host The hostname or IP address
+ * @property int $port The port number to connect to
+ * @property int $timeout Maximum time to wait when attempting to establish a connection (in seconds)
+ * @property bool $reconnect Enable/disable automatic reconnection if the connection is lost
  */
 final class MessageBrokerConfig extends ArrayObject
 {
